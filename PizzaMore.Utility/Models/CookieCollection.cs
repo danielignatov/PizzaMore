@@ -1,12 +1,14 @@
 ﻿namespace PizzaMore.Utility.Models
 {
+    using System;
+    using System.Collections;
     using System.Collections.Generic;
     using PizzaMore.Utility.Interfaces;
 
     public class CookieCollection : ICookieCollection
     {
         #region Fields
-        private Dictionary<string, Cookie> cookies;
+        private IDictionary<string, Cookie> cookies;
         #endregion
 
         #region Constructors
@@ -26,7 +28,14 @@
 
             set
             {
-                this.cookies[key] = value;
+                if (this.cookies.ContainsKey(key))
+                {
+                    this.cookies[key] = value;
+                }
+                else
+                {
+                    this.cookies.Add(key, value);
+                }
             }
         }
 
@@ -55,9 +64,19 @@
             return false;
         }
 
+        public IEnumerator<Cookie> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         public void RemoveCookie(string cookieName)
         {
             this.cookies.Remove(cookieName);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

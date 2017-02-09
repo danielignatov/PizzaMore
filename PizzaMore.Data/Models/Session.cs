@@ -1,11 +1,6 @@
 ﻿namespace PizzaMore.Data.Models
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class Session
     {
@@ -18,9 +13,11 @@
 
         #region Properties
         [Key]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
-        public User User { get; set; }
+        public int UserId { get; set; }
+
+        public virtual User User { get; set; }
         #endregion
 
         #region Methods

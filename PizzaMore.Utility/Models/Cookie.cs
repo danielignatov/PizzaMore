@@ -8,10 +8,8 @@
         #endregion
 
         #region Constructors
-        public Cookie()
+        public Cookie() : this(null, null)
         {
-            this.CookieName = null;
-            this.cookieValue = null;
         }
 
         public Cookie(string name, string value)

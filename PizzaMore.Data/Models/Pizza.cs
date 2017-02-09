@@ -27,7 +27,9 @@
 
         public int DownVotes { get; set; }
 
-        public User RecipeSuggestedByUser { get; set; }
+        public int RecipeOwnerId { get; set; }
+
+        public virtual User RecipeOwner { get; set; }
         #endregion
     }
 }

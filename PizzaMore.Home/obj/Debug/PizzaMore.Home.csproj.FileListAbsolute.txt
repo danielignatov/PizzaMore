@@ -1,0 +1,12 @@
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\PizzaMore.Home.exe.config
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\obj\Debug\PizzaMore.Home.csprojResolveAssemblyReference.cache
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\PizzaMore.Home.exe
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\PizzaMore.Home.pdb
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\PizzaMore.Data.dll
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\PizzaMore.Utility.dll
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\EntityFramework.dll
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\PizzaMore.Data.pdb
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\PizzaMore.Utility.pdb
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\EntityFramework.xml
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\obj\Debug\PizzaMore.Home.exe
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\obj\Debug\PizzaMore.Home.pdb

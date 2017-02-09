@@ -59,7 +59,7 @@
             }
         }
 
-        public ICollection<Pizza> PizzaSuggestions
+        public virtual ICollection<Pizza> PizzaSuggestions
         {
             get
             {

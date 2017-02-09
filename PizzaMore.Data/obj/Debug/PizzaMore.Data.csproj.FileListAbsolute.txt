@@ -1,0 +1,10 @@
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Data\bin\Debug\PizzaMore.Data.dll.config
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Data\bin\Debug\PizzaMore.Data.dll
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Data\bin\Debug\PizzaMore.Data.pdb
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Data\bin\Debug\EntityFramework.dll
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Data\bin\Debug\EntityFramework.xml
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Data\obj\Debug\PizzaMore.Data.csprojResolveAssemblyReference.cache
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Data\obj\Debug\PizzaMore.Data.dll
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Data\obj\Debug\PizzaMore.Data.pdb
