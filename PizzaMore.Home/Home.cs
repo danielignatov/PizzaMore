@@ -45,9 +45,9 @@
         {
             Header.Print();
 
-            if (Language.Equals("BG"))
+            if (Language.Equals("DE"))
             {
-                ServeHtmlBg();
+                ServeHtmlDe();
             }
             else
             {
@@ -60,9 +60,9 @@
             WebUtil.PrintFileContent("home.html");
         }
 
-        private static void ServeHtmlBg()
+        private static void ServeHtmlDe()
         {
-            WebUtil.PrintFileContent("home-bg.html");
+            WebUtil.PrintFileContent("home-de.html");
         }
     }
 }

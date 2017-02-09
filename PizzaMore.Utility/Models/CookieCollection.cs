@@ -7,77 +7,72 @@
 
     public class CookieCollection : ICookieCollection
     {
-        #region Fields
-        private IDictionary<string, Cookie> cookies;
-        #endregion
-
-        #region Constructors
         public CookieCollection()
         {
-            this.cookies = new Dictionary<string, Cookie>();
+            this.Cookies = new Dictionary<string, Cookie>();
         }
-        #endregion
 
-        #region Properties
         public Cookie this[string key]
         {
             get
             {
-                return this.cookies[key];
+                return this.Cookies[key];
             }
 
             set
             {
-                if (this.cookies.ContainsKey(key))
+                if (this.Cookies.ContainsKey(key))
                 {
-                    this.cookies[key] = value;
+                    this.Cookies[key] = value;
                 }
                 else
                 {
-                    this.cookies.Add(key, value);
+                    this.Cookies.Add(key, value);
                 }
             }
         }
+
+        public IDictionary<string, Cookie> Cookies { get; private set; }
 
         public int Count
         {
             get
             {
-                return this.cookies.Count;
+                return this.Cookies.Count;
             }
         }
-        #endregion
 
-        #region Methods
         public void AddCookie(Cookie cookie)
         {
-            this.cookies.Add(cookie.CookieName, cookie);
+            if (!this.Cookies.ContainsKey(cookie.CookieName))
+            {
+                this.Cookies.Add(cookie.CookieName, new Cookie());
+            }
+
+            this.Cookies[cookie.CookieName] = cookie;
         }
 
         public bool ContainsKey(string key)
         {
-            if (this.cookies.ContainsKey(key))
-            {
-                return true;
-            }
-
-            return false;
+            return this.Cookies.ContainsKey(key);
         }
 
-        public IEnumerator<Cookie> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this.GetEnumerator();
         }
 
         public void RemoveCookie(string cookieName)
         {
-            this.cookies.Remove(cookieName);
+            if (this.Cookies.ContainsKey(cookieName))
+            {
+                this.Cookies.Remove(cookieName);
+            }
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        IEnumerator<Cookie> IEnumerable<Cookie>.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return this.Cookies.Values.GetEnumerator();
         }
-        #endregion
     }
 }

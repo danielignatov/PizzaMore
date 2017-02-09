@@ -9,23 +9,18 @@ namespace PizzaMore.Utility.Models
 {
     public class Header
     {
-        #region Constructor
         public Header()
         {
             this.Type = "Content-type: text/html";
             this.Cookies = new CookieCollection();
         }
-        #endregion
-        
-        #region Properties
-        public string Type { get; set; }
 
-        public string Location { get; set; }
+        public string Type { get; }
 
-        public CookieCollection Cookies { get; set; }
-        #endregion
+        public string Location { get; private set; }
 
-        #region Methods
+        public ICookieCollection Cookies { get; private set; }
+
         public void AddLocation(string location)
         {
             this.Location = $"Location: {location}";
@@ -36,14 +31,18 @@ namespace PizzaMore.Utility.Models
             this.Cookies.AddCookie(cookie);
         }
 
+        public void Print()
+        {
+            Console.WriteLine(this.ToString());
+        }
+
         public override string ToString()
         {
             StringBuilder header = new StringBuilder();
             header.AppendLine(this.Type);
-
             if (this.Cookies.Count > 0)
             {
-                foreach (var cookie in this.Cookies)
+                foreach (Cookie cookie in this.Cookies)
                 {
                     header.AppendLine($"Set-Cookie: {cookie.ToString()}");
                 }
@@ -59,11 +58,5 @@ namespace PizzaMore.Utility.Models
 
             return header.ToString();
         }
-
-        public void Print()
-        {
-            Console.WriteLine(this.ToString());
-        }
-        #endregion
     }
 }

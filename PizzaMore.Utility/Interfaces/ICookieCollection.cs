@@ -11,14 +11,8 @@
 
         bool ContainsKey(string key);
 
-        int Count
-        {
-            get;
-        }
+        int Count { get; }
 
-        Cookie this[string key]
-        {
-            get; set;
-        }
+        Cookie this[string key] { get; set; }
     }
 }

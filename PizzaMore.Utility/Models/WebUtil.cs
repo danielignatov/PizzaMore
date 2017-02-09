@@ -13,123 +13,112 @@
 
     public static class WebUtil
     {
-        #region Methods
-        public static bool IsGet()
-        {
-            var environmentVariable = Environment.GetEnvironmentVariable(Constants.RequestMethod);
-            environmentVariable = environmentVariable.ToLower();
-
-            if (environmentVariable != null)
-            {
-                if (environmentVariable == "get")
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
         public static bool IsPost()
         {
             var environmentVariable = Environment.GetEnvironmentVariable(Constants.RequestMethod);
-            environmentVariable = environmentVariable.ToLower();
-
             if (environmentVariable != null)
             {
-                if (environmentVariable == "post")
+                string requestMethod = environmentVariable.ToLower();
+                if (requestMethod == "post")
                 {
                     return true;
                 }
             }
+            return false;
+        }
 
+        public static bool IsGet()
+        {
+            var environmentVariable = Environment.GetEnvironmentVariable(Constants.RequestMethod);
+            if (environmentVariable != null)
+            {
+                string requestMethod = environmentVariable.ToLower();
+                if (requestMethod == "get")
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
         public static IDictionary<string, string> RetrieveGetParameters()
         {
-            string parameters = WebUtility.UrlDecode(Environment.GetEnvironmentVariable(Constants.QueryString));
+            string parametersString = WebUtility.UrlDecode(Environment.GetEnvironmentVariable(Constants.QueryString));
 
-            return RetrieveRequestParameters(parameters);
+            return RetrieveRequestParameters(parametersString);
         }
 
         public static IDictionary<string, string> RetrievePostParameters()
         {
-            string parameters = WebUtility.UrlDecode(Console.ReadLine());
+            string parametersString = WebUtility.UrlDecode(Console.ReadLine());
 
-            return RetrieveRequestParameters(parameters);
+            return RetrieveRequestParameters(parametersString);
         }
 
-        public static IDictionary<string, string> RetrieveRequestParameters(string parametersString)
+        private static IDictionary<string, string> RetrieveRequestParameters(string parametersString)
         {
-            var resultPrameters = new Dictionary<string, string>();
+            Dictionary<string, string> resultParameters = new Dictionary<string, string>();
             var parameters = parametersString.Split('&');
-
             foreach (var param in parameters)
             {
                 var pair = param.Split('=');
-                var key = pair[0];
+                var name = pair[0];
                 string value = null;
-                if (pair.Count() > 1)
+                if (pair.Length > 1)
                 {
                     value = pair[1];
                 }
 
-                resultPrameters.Add(key, value);
+                resultParameters.Add(name, value);
             }
 
-            return resultPrameters;
+            return resultParameters;
         }
 
         public static ICookieCollection GetCookies()
         {
             string cookieString = Environment.GetEnvironmentVariable(Constants.GetCookie);
-
             if (string.IsNullOrEmpty(cookieString))
             {
                 return new CookieCollection();
             }
 
             var cookies = new CookieCollection();
-            string[] cookieParameters = cookieString.Split(';');
-
-            foreach (var cookieParam in cookieParameters)
+            string[] cookieSaves = cookieString.Split(';');
+            foreach (var cookieSave in cookieSaves)
             {
-                string[] pair = cookieParam.Split('=').Select(c => c.Trim()).ToArray();
-                var cookie = new Cookie(pair[0], pair[1]);
+                string[] cookiePair = cookieSave.Split('=').Select(x => x.Trim()).ToArray();
+                var cookie = new Cookie(cookiePair[0], cookiePair[1]);
                 cookies.AddCookie(cookie);
             }
-
             return cookies;
         }
 
         public static Session GetSession()
         {
             var cookies = GetCookies();
-
             if (!cookies.ContainsKey(Constants.SessionId))
             {
                 return null;
             }
 
             var sessionCookie = cookies[Constants.SessionId];
-            var context = new PizzaMoreContext();
+            var ctx = new PizzaMoreContext();
 
-            var session = context.Sessions.FirstOrDefault(x => x.Id == sessionCookie.CookieValue);
-
+            var session = ctx.Sessions
+                .FirstOrDefault(s => s.Id == sessionCookie.CookieValue);
             return session;
-        }
-
-        public static void PrintFileContent(string path)
-        {
-            string fileContent = File.ReadAllText(path);
-            Console.WriteLine(fileContent);
         }
 
         public static void PageNotAllowed()
         {
-            PrintFileContent("/page-not-allowed.html");
+            PrintFileContent("../../htdocs/pm/game/index.html");
         }
-        #endregion
+
+        public static void PrintFileContent(string path)
+        {
+            string content = File.ReadAllText(path);
+            Console.WriteLine(content);
+        }
     }
 }

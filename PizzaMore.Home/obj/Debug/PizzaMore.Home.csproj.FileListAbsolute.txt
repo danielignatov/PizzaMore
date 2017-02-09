@@ -10,3 +10,5 @@ C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\PizzaM
 C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\EntityFramework.xml
 C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\obj\Debug\PizzaMore.Home.exe
 C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\obj\Debug\PizzaMore.Home.pdb
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Даниел\Documents\GitHub\PizzaMore\PizzaMore.Home\bin\Debug\EntityFramework.SqlServer.xml
